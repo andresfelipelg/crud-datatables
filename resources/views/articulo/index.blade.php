@@ -1,14 +1,14 @@
 @extends('layouts.plantilla')
 
 @section('css')
- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" rel="styles">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 @endsection
 @section('contenido')
 
-   <a href="{{ route('articulos.create') }}" class="btn btn-primary mt-2">Crear</a>
+   <a href="{{ route('articulos.create') }}" class="btn btn-primary mt-2 mb-3">Crear</a>
 
    <table class="table table-dark table-striped mt-4 table-bordered shadow-lg" id="articulos">
-     <thead class="bg-primary text-center text-white">
+     <thead class="bg-primary  text-white">
          <tr>
              <th scope="col">ID</th>
              <th scope="col">Codigo</th>
@@ -45,4 +45,16 @@
          @endforeach
      </tbody>
    </table>
+   @section('js')
+       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+       <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+       <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+       <script>
+           $(document).ready(function() {
+            $('#articulos').DataTable({
+                "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]]
+            });
+             } );
+       </script>
+   @endsection
 @endsection

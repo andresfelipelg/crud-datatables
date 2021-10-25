@@ -23,7 +23,7 @@
 
     <div class="mb-3">
         <label for="" class="form-label">Precio</label>
-        <input type="number" class="form-control" id="" name="precio" value="0.00" tabindex="4">
+        <input type="number" class="form-control" id="" name="precio"  tabindex="4">
     </div>
       
     <a href="{{ route('articulos.index') }}" class="btn btn-secondary">Cancelar</a>
