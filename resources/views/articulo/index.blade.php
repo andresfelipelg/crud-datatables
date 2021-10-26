@@ -52,6 +52,7 @@
        <script>
            $(document).ready(function() {
             $('#articulos').DataTable({
+                
                 "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]]
             });
              } );
