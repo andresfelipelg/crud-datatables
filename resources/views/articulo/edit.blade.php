@@ -1,9 +1,12 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
-@section('contenido')
+@section('title', 'Dashboard')
 
-<h2>Editar registros</h2>
+@section('content_header')
+    <h1>Editar Registro</h1>
+@stop
 
+@section('content')
 <form action="/articulos/{{ $articulo-> id}}" method="post">
     @csrf
     @method('PUT')
@@ -30,5 +33,12 @@
     <a href="{{ route('articulos.index') }}" class="btn btn-secondary">Cancelar</a>
       <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
 </form>
-    
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
