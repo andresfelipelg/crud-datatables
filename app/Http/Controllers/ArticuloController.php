@@ -43,12 +43,31 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //validacion
+
+        $request -> validate([
+
+        'codigo' => 'required',
+        'descripcion' => 'required',
+        'cantidad' => 'required',
+        'precio' => 'required',
+
+    ],[
+        //mensaje de error
+        'codigo.required' => ' El codigo se requiere ',
+        'descripcion.required' => 'La descricion se requiere',
+        'cantidad.required' => 'La cantidad es requerida',
+        'precio.required' => 'El precio es requerido',
+
+
+    ]);
+
+
         $articulos = new Articulo();
-        $articulos->codigo = $request->get('codigo');
-        $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
-        $articulos->precio = $request->get('precio');
+        $articulos->codigo = $request->codigo;
+        $articulos->descripcion = $request->descripcion;
+        $articulos->cantidad = $request->cantidad;
+        $articulos->precio = $request->precio;
         $articulos->save();
 
         return redirect('/articulos') ;
@@ -110,6 +129,6 @@ class ArticuloController extends Controller
         $articulo = Articulo::find($id);
         $articulo->delete();
         return redirect('/articulos');
-        
+
     }
 }
